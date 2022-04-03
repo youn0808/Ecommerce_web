@@ -19,11 +19,11 @@ const CartScreen = () => {
   const productId = id;
   const location = useLocation();
   const qty = new URLSearchParams(location.search).get("qty");
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
+  //   const cart = useSelector((state) => state.cart);
+  //   const { cartItems } = cart;
 
   useEffect(() => {
     if (productId) {
@@ -40,7 +40,7 @@ const CartScreen = () => {
   //   };
 
   return (
-    <div>Nothign</div>
+    <div>return</div>
     // <Row>
     //   <Col md={8}>
     //     <h1>Shopping Cart</h1>
