@@ -14,6 +14,7 @@ import Rating from "../components/Rating";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listProductDetails } from "../actions/productActions";
+import { useNavigate } from "react-router";
 
 const ProductScreen = ({ history }) => {
   const [qty, setQty] = useState(0);
@@ -22,14 +23,14 @@ const ProductScreen = ({ history }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const { id } = useParams();
-  console.log(id);
-  // console.log(useParams.id);
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [dispatch, id]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${id}?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}`);
   };
 
   return (
