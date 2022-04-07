@@ -114,21 +114,19 @@ const ProductEditScreen = () => {
               <Form.Control
                 type="name"
                 placeholder="Enter name"
-                value={name}
+                value={name || ""}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId="price">
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
-                value={price}
+                value={price || 0}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId="image">
               <Form.Label>Image</Form.Label>
               <Form.Control
@@ -137,57 +135,60 @@ const ProductEditScreen = () => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
-              {/* <Form.Control
-                type="file"
-                // id="image"
-                value={Image}
-                label="Choose file"
-                // custom
-                onChange={uploadFileHandler}
-              /> */}
               {uploading && <Loader />}
             </Form.Group>
+
+            {/* <Form.Group controlId="image">
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter image url"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+              ></Form.Control>
+              <Form.Control
+                type="file"
+                id="image-file"
+                label="Choose File"
+                onChange={uploadFileHandler}
+            ></Form.Control> */}
 
             <Form.Group controlId="brand">
               <Form.Label>Brand</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter brand"
-                value={brand}
+                value={brand || ""}
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId="countInStock">
               <Form.Label>Count In Stock</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Enter countInStock"
-                value={countInStock}
+                value={countInStock || 0}
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId="category">
               <Form.Label>Category</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter category"
-                value={category}
+                value={category || ""}
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Form.Group controlId="description">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter description"
-                value={description}
+                value={description || ""}
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
             <Button type="submit" variant="primary">
               Update
             </Button>
