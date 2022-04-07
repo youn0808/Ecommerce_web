@@ -16,12 +16,7 @@ import {
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
 } from "../constants/productConstants";
-/*
-thunks check if what you dispatched was an object or a function.
- Any time something is dispatched to the store, thunk runs and checks 
-if what was dispatched to the store was an object or a function. 
-If it's a object it dispatches it as normal.
-*/
+
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
@@ -30,7 +25,7 @@ export const listProducts = () => async (dispatch) => {
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
-      payload: data, // pass data into the payload.
+      payload: data,
     });
   } catch (error) {
     dispatch({

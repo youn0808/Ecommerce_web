@@ -14,12 +14,9 @@ import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 
 const ProductListScreen = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-  const navigate = useNavigate();
 
   const productDelete = useSelector((state) => state.productDelete);
   const {
@@ -35,6 +32,9 @@ const ProductListScreen = () => {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   useEffect(() => {
     dispatch({ type: PRODUCT_CREATE_RESET });
