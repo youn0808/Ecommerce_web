@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/youn0808/Ecommerce_web#readme",
   "name": "ecommerse_web",
   "version": "1.0.0",
   "description": "MERN Bestbuy website",
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "gh-pages": "^3.2.3",
     "nodemon": "^2.0.15"
   },
   "scripts": {
@@ -36,7 +38,8 @@
     "client": "npm start --prefix front-end",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node back-end/seeder",
-    "data:destroy": "node back-end/seeder -d"
+    "data:destroy": "node back-end/seeder -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix front-end && npm run build --prefix front-end"
   },
   "repository": {
     "type": "git",
@@ -46,6 +49,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/youn0808/Ecommerce_web/issues"
-  },
-  "homepage": "https://github.com/youn0808/Ecommerce_web#readme"
+  }
 }
