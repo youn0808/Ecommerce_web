@@ -18,7 +18,8 @@ const CartScreen = () => {
   const { id } = useParams();
   const productId = id;
   const location = useLocation();
-  const qty = new URLSearchParams(location.search).get("qty");
+  // const qty = new URLSearchParams(location.search).get("qty");
+  const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -96,10 +97,14 @@ const CartScreen = () => {
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>
-                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items
+                Subtotal (
+                {cartItems.reduce(
+                  (acc, item) => parseInt(acc) + parseInt(item.qty),
+                  0
+                )}
+                ) items
               </h2>
-              $
+
               {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}

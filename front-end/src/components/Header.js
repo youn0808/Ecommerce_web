@@ -17,10 +17,22 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar
+        bg="dark"
+        variant="dark"
+        expand="lg"
+        className="nav_brand"
+        collapseOnSelect
+      >
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            bestbuy
+          <Navbar.Brand
+            id="nav_brand"
+            // style="font-family:Hurricane,sans-serif;"
+            // style="font-family:sans-serif"
+            as={Link}
+            to="/"
+          >
+            Bestdeal
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
